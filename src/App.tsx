@@ -1,13 +1,15 @@
-import React, { useEffect, useState } from 'react'
-import { Route } from "react-router-dom"
-import ActiveShow from './ActiveShow'
-import ShowList from './ShowList'
-import './App.scss'
+import React, { useEffect, useState } from 'react';
+import { Route, withRouter, Switch } from "react-router-dom";
+import ActiveShow from './ActiveShow';
+import ShowList from './ShowList';
+import { Show } from "./definitions/Show";
+
+import './App.scss';
 
 
 const App: React.SFC = () => {
-  const [shows, setShows] = useState([]);
-  const [activeShow, setActiveShow] = useState({});
+  const [shows, setShows] = useState<Show[]>([]);
+  const [activeShow, setActiveShow] = useState<Show | null>(null);
 
   useEffect(() => {fetchAllShows()}, []);
 
@@ -15,7 +17,8 @@ const App: React.SFC = () => {
     const response: any = await fetch('http://localhost:3000/shows');
     if (response.ok) {
       const data = await response.json();
-      console.log(data)
+      setActiveShow(data[0]);
+      setShows(data);
     } else {
       //TODO: Error handle
       throw new Error (response.statusText);
@@ -23,15 +26,13 @@ const App: React.SFC = () => {
   }
 
   return (
-    <div className='container'>
-      <Route exact path="?id=:id" render={({ match }) => {
-        const { id } = match.params;
-        return <ActiveShow show={shows.find(s => s.id === id)} />
-        }}
-      />
-      <ShowList />
-    </div>
+    <main className='container'>
+      {/* <Switch> */}
+        <Route path="/?id=:id" component={ActiveShow} />
+      {/* </Switch> */}
+      <ShowList shows={shows} activeShow={activeShow} />
+    </main>
   )
 }
 
-export default App;
+export default withRouter(App);

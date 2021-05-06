@@ -2,14 +2,29 @@
 $default-background: #D3D3D3;
 
 body {
-    height: 100%;
     background-color: $default-background;
 }
 
 .container {
-    align-items: center;
-    display: flex;
-    justify-content: center;
-    padding-top: 10px;
-    width: 100%;
+  height: 100%;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 10px;
+  margin: auto;
+}
+
+.show-carousel {
+  display: flex;
+  overflow-x: scroll;
+  width: 80%;
+}
+
+.mini-show-card {
+  img {
+    padding: 10%;
+    height: 30vh;
+    width: auto;
+  }
 }
