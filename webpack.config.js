@@ -37,5 +37,8 @@ module.exports = {
               use: ['file-loader']
             }
         ]
-    }
+    },
+    devServer: {
+      historyApiFallback: true,
+    },
 }
