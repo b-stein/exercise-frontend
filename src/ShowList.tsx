@@ -9,7 +9,7 @@ interface ShowListProps {
 
 const ShowList: React.SFC<ShowListProps> = (props) => {
   const showsAtAGlance = props.shows.map((show, i) => {
-    return <MiniShowCard show={show} />
+    return <MiniShowCard show={show} key={i} />
   })
 
 	return (

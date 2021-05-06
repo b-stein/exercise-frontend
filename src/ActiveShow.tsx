@@ -1,27 +1,24 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Show } from "./definitions/Show";
 
 interface ActiveShowProps {
-  // show: Show;
-  match: any;
+  show: Show;
 }
 
-const ActiveShow: React.SFC<ActiveShowProps> = ({match}) => {
-  const [activeShow, setActiveShow] = useState<Show | null>(null);
-
-  useEffect(() => {findActiveShow()}, null);
-
-  const findActiveShow = () => {
-    console.log(match);
-  }
-
+const ActiveShow: React.SFC<ActiveShowProps> = ({ show }) => {
 	return (
-		<section className='about-wrapper'>
-			<p className='about'>
-        ACTIVE SHOW
-      </p>
-			
-		</section>
+    <>
+    {show && (
+      <section className='active-show-card'>
+        <img
+          className='active-card-img'
+          src={show.product_image_url}
+        />
+        <p>episode count</p>
+        <h2>title</h2>
+      </section>
+    )}
+    </>
 	)
 }
 

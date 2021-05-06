@@ -15,6 +15,13 @@ body {
   margin: auto;
 }
 
+.active-show-card {
+  img {
+    height: 50vh;
+    width: auto;
+  }
+}
+
 .show-carousel {
   display: flex;
   overflow-x: scroll;

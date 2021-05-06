@@ -8,7 +8,7 @@ interface MiniShowCardProps {
 
 const MiniShowCard: React.SFC<MiniShowCardProps> = (props) => {
 	return (
-    <Link to={`?id=${props.show.id}`}>
+    <Link to={`/${props.show.id}`}>
       <section className='mini-show-card'>
         <img
           className='show-card-img'
