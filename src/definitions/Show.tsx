@@ -1,6 +1,6 @@
 export interface Show {
   id: string;
   title: string;
-  episode: number;
+  episodes: number;
   product_image_url: string;
 }

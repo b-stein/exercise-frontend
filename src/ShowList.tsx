@@ -4,7 +4,6 @@ import MiniShowCard from './MiniShowCard';
 
 interface ShowListProps {
   shows: Show[],
-  activeShow: Show,
 }
 
 const ShowList: React.SFC<ShowListProps> = (props) => {

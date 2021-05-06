@@ -14,8 +14,8 @@ const ActiveShow: React.SFC<ActiveShowProps> = ({ show }) => {
           className='active-card-img'
           src={show.product_image_url}
         />
-        <p>episode count</p>
-        <h2>title</h2>
+        <p>{show.episodes} episodes</p>
+        <h2>{show.title}</h2>
       </section>
     )}
     </>

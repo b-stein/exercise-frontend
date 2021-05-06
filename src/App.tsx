@@ -9,21 +9,15 @@ import './App.scss';
 
 const App: React.SFC = () => {
   const [shows, setShows] = useState<Show[]>([]);
-  const [activeShow, setActiveShow] = useState<Show>();
   const history = useHistory();
 
   useEffect(() => {fetchAllShows()}, []);
-  // useEffect(() => {
-  //   console.log(activeShow)
-  //   if (activeShow.id) {
-  //   }
-  // });
   
   const fetchAllShows = async (): Promise<any> => {
     const response: any = await fetch('http://localhost:3000/shows');
+    
     if (response.ok) {
       const data = await response.json();
-      setActiveShow(data[0]);
       setShows(data);
       history.push(`/${data[0].id}`);
     } else {
@@ -47,7 +41,7 @@ const App: React.SFC = () => {
         />
         <Redirect to='/' />
       </Switch>
-      <ShowList shows={shows} activeShow={activeShow} />
+      <ShowList shows={shows} />
     </main>
   )
 }
