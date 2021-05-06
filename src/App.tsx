@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Route, Redirect, withRouter, useHistory, Switch } from "react-router-dom";
+import { Route, Redirect, withRouter, useHistory, useLocation, Switch } from "react-router-dom";
 import ActiveShow from './ActiveShow';
 import ShowList from './ShowList';
 import { Show } from "./definitions/Show";
@@ -10,6 +10,7 @@ import './App.scss';
 const App: React.SFC = () => {
   const [shows, setShows] = useState<Show[]>([]);
   const history = useHistory();
+  const location = useLocation();
 
   useEffect(() => {fetchAllShows()}, []);
   
@@ -19,7 +20,12 @@ const App: React.SFC = () => {
     if (response.ok) {
       const data = await response.json();
       setShows(data);
-      history.push(`/${data[0].id}`);
+
+      if (location.pathname !== `/`) {
+        history.push(location.pathname);
+      } else {
+        history.push(`/${data[0].id}`);
+      }
     } else {
       //TODO: Error handle
       throw new Error (response.statusText);

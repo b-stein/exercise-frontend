@@ -10,7 +10,6 @@ interface MiniShowCardProps {
 const MiniShowCard: React.SFC<MiniShowCardProps> = ({ show }) => {
   const isActiveShow = useLocation().pathname.replace('/', '') === show.id;
 
-  console.log(isActiveShow)
 	return (
     <Link to={`/${show.id}`} className='mini-show-card'>
       <section>
