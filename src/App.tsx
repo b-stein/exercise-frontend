@@ -29,7 +29,7 @@ const App: React.SFC = () => {
       if (location.pathname !== `/`) {
         history.push(location.pathname);
       } else {
-        history.push(`/${data[0].id}`);
+        history.push(`/?id=${data[0].id}`);
       }
     } else {
       //TODO: Error handle
@@ -46,16 +46,13 @@ const App: React.SFC = () => {
       {width > 980 && <ShowList shows={shows} isMobile={false} />}
       <Switch>
         <Route
-          path="/:id"
-          render={({ match }) => {
-            const { id } = match.params;
-            const chosenShow = shows.find(s => s.id === id);
+          path="/"
+          render={({location, history}) => {
             return (
-              <ActiveShow show={chosenShow} />
+              <ActiveShow shows={shows} />
               )
             }}
             />
-        <Redirect to='/' />
       </Switch>
       {width < 980 && <ShowList shows={shows} isMobile={true} />}
     </main>
