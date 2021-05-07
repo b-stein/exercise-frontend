@@ -5,6 +5,7 @@
 - cd into repo & open in your IDE
 - `yarn install`
 - Run tests: `yarn jest`
+- Run linter: `yarn lint`
 - Boot up:
   -  `yarn start-api` in one terminal
   -  `yarn start` in another terminal
