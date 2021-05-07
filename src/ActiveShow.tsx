@@ -21,13 +21,13 @@ const ActiveShow: React.FunctionComponent<ActiveShowProps> = (props) => {
 
   return (
     <>
-    {foundActiveShow && (
-      <section className='active-show-card'>
-        <img className='active-card-img' src={foundActiveShow.product_image_url} />
-        <p>{foundActiveShow.episodes} episodes</p>
-        <h1>{foundActiveShow.title}</h1>
-      </section>
-    )}
+      {foundActiveShow && (
+        <section className='active-show-card'>
+          <img className='active-card-img' src={foundActiveShow.product_image_url} />
+          <p>{foundActiveShow.episodes} episodes</p>
+          <h1>{foundActiveShow.title}</h1>
+        </section>
+      )}
     </>
 	)
 }

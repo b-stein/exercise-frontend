@@ -11,7 +11,7 @@ interface ShowListProps {
 
 const ShowList: React.FunctionComponent<ShowListProps> = ({ shows, isMobile }) => {
   const location = useLocation();
-  const showListItems = useRef<HTMLDivElement>(null);
+  const showListItems = useRef<HTMLElement>(null);
 
   const scroll = (scrollOffset: number): void => {
     showListItems.current.scrollLeft += scrollOffset;
@@ -34,13 +34,13 @@ const ShowList: React.FunctionComponent<ShowListProps> = ({ shows, isMobile }) =
 	return (
     <nav>
       {isMobile && <hr className="solid" />}
-      <div className='show-carousel-wrapper' style={{ width: isMobile ? '95vw' : '65vw' }}>
+      <section className='show-carousel-wrapper' style={{ width: isMobile ? '95vw' : '65vw' }}>
         <button className="arrow left" onClick={() => scroll(-120)}></button>
         <section className='show-carousel' ref={showListItems}>
           {showsAtAGlance}
         </section>
         <button className="arrow right" onClick={() => scroll(120)}></button>
-      </div>
+      </section>
       {!isMobile && <hr className="solid" />}
     </nav>  
 	)
