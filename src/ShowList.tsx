@@ -9,11 +9,12 @@ interface ShowListProps {
   isMobile: Boolean,
 }
 
-const ShowList: React.SFC<ShowListProps> = ({ shows, isMobile}) => {
+const ShowList: React.FunctionComponent<ShowListProps> = ({ shows, isMobile }) => {
   const location = useLocation();
 
   const showsAtAGlance = shows.map((show, i) => {
-    const isActive = queryString.parse(location.search).id === show.id
+    const isActive = queryString.parse(location.search).id === show.id;
+
     return (
       <MiniShowCard
         show={show}
@@ -28,7 +29,7 @@ const ShowList: React.SFC<ShowListProps> = ({ shows, isMobile}) => {
 	return (
     <div>
       {isMobile && <hr className="solid" />}
-      <section className='show-carousel' style={{width: isMobile ? '95vw' : '65vw'}}>
+      <section className='show-carousel' style={{ width: isMobile ? '95vw' : '65vw' }}>
         {showsAtAGlance}
       </section>
       {!isMobile && <hr className="solid" />}

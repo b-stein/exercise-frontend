@@ -9,16 +9,16 @@ interface MiniShowCardProps {
   isActive: Boolean,
 }
 
-const MiniShowCard: React.SFC<MiniShowCardProps> = ({ show, index, isMobile, isActive }) => {
+const MiniShowCard: React.FunctionComponent<MiniShowCardProps> = ({ show, index, isMobile, isActive }) => {
   return (
     <Link to={`/?id=${show.id}`} className={isMobile ? 'mini-show-card-mobile' : 'mini-show-card'}>
       <section>
-        {isMobile && <p>{ isActive ? index + 1 : '' }</p>}
+        {isMobile && <p>{ isActive && index + 1 }</p>}
         <img
-          className={'show-card-img' + (isActive ? ' active-carousel-item' : '')}
+          className={'show-card-img' + (isActive && ' active-carousel-item')}
           src={show.product_image_url}
           />
-        {!isMobile && <p>{ isActive ? index + 1 : '' }</p>}
+        {!isMobile && <p>{ isActive && index + 1 }</p>}
       </section>
     </Link>
 	)

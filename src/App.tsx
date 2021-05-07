@@ -1,13 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { Route, Redirect, withRouter, useHistory, useLocation, Switch } from "react-router-dom";
+import { Show } from "./definitions/Show";
 import ActiveShow from './ActiveShow';
 import ShowList from './ShowList';
-import { Show } from "./definitions/Show";
-
 import './App.scss';
 
-
-const App: React.SFC = () => {
+const App: React.FunctionComponent = () => {
   const [shows, setShows] = useState<Show[]>([]);
   const [width, setWidth] = useState(window.innerWidth);
   const history = useHistory();
@@ -47,12 +45,8 @@ const App: React.SFC = () => {
       <Switch>
         <Route
           path="/"
-          render={({location, history}) => {
-            return (
-              <ActiveShow shows={shows} />
-              )
-            }}
-            />
+          render={() => <ActiveShow shows={shows} />}
+        />
       </Switch>
       {width < 980 && <ShowList shows={shows} isMobile={true} />}
     </main>

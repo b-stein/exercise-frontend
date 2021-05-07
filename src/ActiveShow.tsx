@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import { Location } from 'history';
 import queryString from 'query-string';
+import { Location } from 'history';
 import { Show } from "./definitions/Show";
 
 interface ActiveShowProps {
   shows: Show[];
 }
 
-const ActiveShow: React.SFC<ActiveShowProps> = (props) => {
+const ActiveShow: React.FunctionComponent<ActiveShowProps> = (props) => {
 	const [foundActiveShow, setFoundActiveShow] = useState<Show | null>(null);
   const location: Location = useLocation();
 
