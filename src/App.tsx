@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Route, Redirect, withRouter, useHistory, useLocation, Switch } from "react-router-dom";
+import queryString from 'query-string';
 import { Show } from "./definitions/Show";
 import { getAllShows } from "./apiCalls";
 import ActiveShow from './ActiveShow';
@@ -24,10 +25,11 @@ const App: React.FunctionComponent = () => {
       const data: Show[] = await getAllShows();
       setShows(data);
 
-      if (location.pathname !== `/`) {
-        history.push(location.pathname);
-      } else {
+      // Initial load pushes to first show
+      if (!location.search) {
         history.push(`/?id=${data[0].id}`);
+      } else {
+        history.push(location.search);
       }
     } catch(error) {
       console.log('ERROR: Something went wrong.', error);
