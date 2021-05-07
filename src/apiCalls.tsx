@@ -9,7 +9,6 @@ export const getAllShows = async (): Promise<Show[]> => {
     const data = await response.json();
     return data;
   } else {
-    //TODO: Error handle
     throw new Error (response.statusText);
   }
 };

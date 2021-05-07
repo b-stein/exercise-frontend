@@ -3,6 +3,8 @@ $default-background: #F5F5F5;
 $main-black: #000;
 $grey-accent: #a6a6a6;
 $lighter-grey-accent: #ccc;
+$orange-accent: #FFA466;
+$error: #ED2939;
 
 body {
   background-color: $default-background;
@@ -22,6 +24,12 @@ h1 {
   margin: 0;
   font-weight: bolder;
 
+}
+
+.error-msg {
+  color: $error;
+  text-align: center;
+  width: 75vw;
 }
 
 .container {
@@ -57,7 +65,6 @@ h1 {
   border: $default-background;
 	border-top: .5vmin solid $grey-accent;
 	border-right: .5vmin solid $grey-accent;
-	box-shadow: 0 0 0 lightgray;
 	transition: all 200ms ease;
 	&.left {
 		left: 0;
@@ -68,7 +75,7 @@ h1 {
 		transform: translate3d(0,-50%,0) rotate(45deg);
 	}
 	&:hover {
-		border-color: orange;
+		border-color: $orange-accent;
 	}
 	&:before {
 		content: '';

@@ -8,7 +8,8 @@ import './App.scss';
 
 const App: React.FunctionComponent = () => {
   const [shows, setShows] = useState<Show[]>([]);
-  const [width, setWidth] = useState(window.innerWidth);
+  const [width, setWidth] = useState<Number>(window.innerWidth);
+  const [error, setError] = useState<String>('');
   const history = useHistory();
   const location = useLocation();
 
@@ -29,8 +30,8 @@ const App: React.FunctionComponent = () => {
         history.push(`/?id=${data[0].id}`);
       }
     } catch(error) {
-      //TODO: Error handle
-      throw new Error (error.statusText);
+      console.log('ERROR: Something went wrong.', error);
+      setError(`Uh oh. Something went wrong. Try again later.`);
     }
   }
 
@@ -40,14 +41,16 @@ const App: React.FunctionComponent = () => {
 
   return (
     <main className='container'>
-      {width > 980 && <ShowList shows={shows} isMobile={false} />}
+      {error && <h2 className="error-msg">{error}</h2>}
+      
+      {width > 980 && !error && <ShowList shows={shows} isMobile={false} />}
       <Switch>
         <Route
           path="/"
           render={() => <ActiveShow shows={shows} />}
         />
       </Switch>
-      {width < 980 && <ShowList shows={shows} isMobile={true} />}
+      {width < 980 && !error && <ShowList shows={shows} isMobile={true} />}
     </main>
   )
 }

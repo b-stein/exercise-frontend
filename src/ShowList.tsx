@@ -2,7 +2,6 @@ import React, { useRef } from 'react';
 import { useLocation } from 'react-router-dom';
 import queryString from 'query-string';
 import { Show } from "./definitions/Show";
-import ScrollMenu from 'react-horizontal-scrolling-menu';
 import MiniShowCard from './MiniShowCard';
 
 interface ShowListProps {
@@ -14,7 +13,6 @@ const ShowList: React.FunctionComponent<ShowListProps> = ({ shows, isMobile }) =
   const location = useLocation();
   const showListItems = useRef<HTMLDivElement>(null);
 
-  //@ts-ignore
   const scroll = (scrollOffset: number): void => {
     showListItems.current.scrollLeft += scrollOffset;
   };
