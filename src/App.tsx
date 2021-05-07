@@ -25,7 +25,7 @@ const App: React.FunctionComponent = () => {
       const data: Show[] = await getAllShows();
       setShows(data);
 
-      // Initial load pushes to first show
+      // Initial load pushes to first show detail
       if (!location.search) {
         history.push(`/?id=${data[0].id}`);
       } else {
