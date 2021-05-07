@@ -10,6 +10,7 @@
   -  `yarn start` in another terminal
 
 
+## Specs
 Below is a HTML/CSS/JS exercise that involves building out a web component, or single page app, to navigate through various VICE shows.
 
 - Use HTML5 semantic markup elements.
