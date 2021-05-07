@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Route, Redirect, withRouter, useHistory, useLocation, Switch } from "react-router-dom";
 import { Show } from "./definitions/Show";
+import { getAllShows } from "./apiCalls";
 import ActiveShow from './ActiveShow';
 import ShowList from './ShowList';
 import './App.scss';
@@ -17,11 +18,9 @@ const App: React.FunctionComponent = () => {
     return () => window.removeEventListener("resize", handleWindowResize);
   }, []);
   
-  const fetchAllShows = async (): Promise<any> => {
-    const response: any = await fetch('http://localhost:3000/shows');
-    
-    if (response.ok) {
-      const data = await response.json();
+  const fetchAllShows = async (): Promise<void> => {    
+    try {
+      const data: Show[] = await getAllShows();
       setShows(data);
 
       if (location.pathname !== `/`) {
@@ -29,9 +28,9 @@ const App: React.FunctionComponent = () => {
       } else {
         history.push(`/?id=${data[0].id}`);
       }
-    } else {
+    } catch(error) {
       //TODO: Error handle
-      throw new Error (response.statusText);
+      throw new Error (error.statusText);
     }
   }
 
@@ -53,4 +52,4 @@ const App: React.FunctionComponent = () => {
   )
 }
 
-export default withRouter(App);
+export default App;
