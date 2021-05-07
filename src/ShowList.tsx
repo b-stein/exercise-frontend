@@ -27,13 +27,13 @@ const ShowList: React.FunctionComponent<ShowListProps> = ({ shows, isMobile }) =
   })
 
 	return (
-    <div>
+    <nav>
       {isMobile && <hr className="solid" />}
       <section className='show-carousel' style={{ width: isMobile ? '95vw' : '65vw' }}>
         {showsAtAGlance}
       </section>
       {!isMobile && <hr className="solid" />}
-    </div>  
+    </nav>  
 	)
 }
 
