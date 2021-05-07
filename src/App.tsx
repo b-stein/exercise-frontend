@@ -9,10 +9,15 @@ import './App.scss';
 
 const App: React.SFC = () => {
   const [shows, setShows] = useState<Show[]>([]);
+  const [width, setWidth] = useState(window.innerWidth);
   const history = useHistory();
   const location = useLocation();
 
   useEffect(() => {fetchAllShows()}, []);
+  useEffect(() => {
+    window.addEventListener("resize", handleWindowResize);
+    return () => window.removeEventListener("resize", handleWindowResize);
+  }, []);
   
   const fetchAllShows = async (): Promise<any> => {
     const response: any = await fetch('http://localhost:3000/shows');
@@ -32,8 +37,13 @@ const App: React.SFC = () => {
     }
   }
 
+  const handleWindowResize = () => {
+    setWidth(window.innerWidth);
+  };
+
   return (
     <main className='container'>
+      {width > 980 && <ShowList shows={shows} isMobile={false} />}
       <Switch>
         <Route
           path="/:id"
@@ -42,12 +52,12 @@ const App: React.SFC = () => {
             const chosenShow = shows.find(s => s.id === id);
             return (
               <ActiveShow show={chosenShow} />
-            )
-          }}
-        />
+              )
+            }}
+            />
         <Redirect to='/' />
       </Switch>
-      <ShowList shows={shows} />
+      {width < 980 && <ShowList shows={shows} isMobile={true} />}
     </main>
   )
 }

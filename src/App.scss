@@ -1,35 +1,38 @@
 
-$default-background: #D3D3D3;
+$default-background: #F5F5F5;
 
 body {
   background-color: $default-background;
+  font-family: 'Recursive', sans-serif;
 }
 
 p {
-  padding: 0;
+  padding: 2% 0 3% 0;
   margin: 0;
-  color: grey;
+  color: #a6a6a6;
+  font-weight: bold;
+  font-size: 14px
 }
 
-h2 {
+h1 {
   padding: 0;
   margin: 0;
+  font-weight: bolder;
 }
 
 .container {
   height: 100%;
+  width: 100%;
   align-items: center;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  padding-top: 10px;
-  margin: auto;
+  justify-content: space-evenly;
 }
 
 .active-show-card {
   text-align: center;
   text-transform: uppercase;
-  margin-bottom: 5%;
+  margin-top: 2%;
   img {
     height: 50vh;
     width: auto;
@@ -39,21 +42,41 @@ h2 {
 .show-carousel {
   display: flex;
   overflow-x: scroll;
-  width: 80%;
+  margin: auto;
 }
 
-.mini-show-card {
+hr.solid {
+  border-top: 3px solid #ccc;
+  width: 90vw;
+  margin: 1% auto 1% auto;
+}
+
+.mini-show-card-mobile, .mini-show-card {
   padding: 0 2% 0 2%;
+  text-decoration: none;
+  section {
+    text-align: center;
+  }
+  p {
+    padding: 0;
+    min-height: 16px;
+    font-size: 15px;
+    font-weight: lighter;
+    color: black;
+  }
   img {
-    padding: 5% 0 5% 0;
-    height: 25vh;
+    height: 15vh;
     width: auto;
+    padding: 5% 0 5% 0;
     border-bottom: 10px solid clear;
     border-top: 10px solid clear;
+    &:hover {
+      opacity: 0.6;
+    }
   }
 }
 
 .active-carousel-item {
-  border-bottom: 10px solid white;
+  border-bottom: 10px solid black;
   // border-top: 10px solid white;
 }

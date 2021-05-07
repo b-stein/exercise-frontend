@@ -10,12 +10,9 @@ const ActiveShow: React.SFC<ActiveShowProps> = ({ show }) => {
     <>
     {show && (
       <section className='active-show-card'>
-        <img
-          className='active-card-img'
-          src={show.product_image_url}
-        />
+        <img className='active-card-img' src={show.product_image_url} />
         <p>{show.episodes} episodes</p>
-        <h2>{show.title}</h2>
+        <h1>{show.title}</h1>
       </section>
     )}
     </>
