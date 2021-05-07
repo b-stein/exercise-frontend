@@ -1,5 +1,15 @@
 # VICE Front End Coding Exercise
 
+## Setup
+- `git clone [SSH]`
+- cd into repo & open in your IDE
+- `yarn install`
+- Run tests: `yarn jest`
+- Boot up:
+  -  `yarn start-api` in one terminal
+  -  `yarn start` in another terminal
+
+
 Below is a HTML/CSS/JS exercise that involves building out a web component, or single page app, to navigate through various VICE shows.
 
 - Use HTML5 semantic markup elements.
