@@ -43,10 +43,47 @@ h1 {
   }
 }
 
+.show-carousel-wrapper {
+  margin: auto;
+  display: flex;
+  justify-content: center;
+}
+
+.arrow {
+	margin-top: 9vh;
+	width: 3vmin;
+	height: 3vmin;
+	background: transparent;
+  border: $default-background;
+	border-top: .5vmin solid $grey-accent;
+	border-right: .5vmin solid $grey-accent;
+	box-shadow: 0 0 0 lightgray;
+	transition: all 200ms ease;
+	&.left {
+		left: 0;
+		transform: translate3d(0,-50%,0) rotate(-135deg);
+	}
+	&.right {
+		right: 0;
+		transform: translate3d(0,-50%,0) rotate(45deg);
+	}
+	&:hover {
+		border-color: orange;
+	}
+	&:before {
+		content: '';
+		top: 50%;
+		left: 50%;
+		transform: translate(-40%,-60%) rotate(45deg);
+		width: 200%;
+		height: 200%;
+	}
+}
+
 .show-carousel {
   display: flex;
   overflow-x: scroll;
-  margin: auto;
+  scroll-behavior: smooth;
 }
 
 hr.solid {

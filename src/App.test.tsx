@@ -30,13 +30,13 @@ describe('App', () => {
 
   // unit tests
   it('renders without crashing', () => {
-      const wrapper = render( <MemoryRouter> <App /> </MemoryRouter> );
+      const wrapper = render(<MemoryRouter> <App /> </MemoryRouter>);
 
       expect(wrapper).toBeTruthy();
   });
 
   it('renders show list navigation menu', async () => {
-      const { getByRole } = render( <MemoryRouter> <App /> </MemoryRouter> );
+      const { getByRole } = render(<MemoryRouter> <App /> </MemoryRouter>);
 
       const navWrapper = getByRole('navigation');
 
@@ -44,7 +44,7 @@ describe('App', () => {
   });
 
   it('renders async show items', async () => {
-      const { getAllByRole, debug } = render( <MemoryRouter> <App /> </MemoryRouter> );
+      const { getAllByRole } = render(<MemoryRouter> <App /> </MemoryRouter>);
 
       const showNavLinks = await waitFor(() => getAllByRole('link'));
 
@@ -52,7 +52,7 @@ describe('App', () => {
   });
 
   it('renders async active show item', async () => {
-      const { getByText } = render( <MemoryRouter> <App /> </MemoryRouter> );
+      const { getByText } = render(<MemoryRouter> <App /> </MemoryRouter>);
 
       const activeShowEpCount = await waitFor(() => getByText('24 episodes'));
       const activeShowTitle = await waitFor(() => getByText('Gaycation'));
@@ -63,7 +63,7 @@ describe('App', () => {
 
   // integration test
   it('active show changes when new nav link item is clicked', async () => {
-      const { getAllByRole, getByText } = render( <MemoryRouter> <App /> </MemoryRouter> );
+      const { getAllByRole, getByText } = render(<MemoryRouter> <App /> </MemoryRouter>);
 
       const nextShowLink = await waitFor(() => getAllByRole('link')[1]);
 
