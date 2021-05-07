@@ -1,9 +1,7 @@
 import React from 'react';
 import { MemoryRouter } from 'react-router-dom';
-import { shallow } from 'enzyme';
 import { render, fireEvent, waitFor } from '@testing-library/react';
 import { mocked } from "ts-jest/utils";
-import { act } from 'react-dom/test-utils';
 import App from './App';
 import { getAllShows } from "./apiCalls";
 jest.mock('./apiCalls');

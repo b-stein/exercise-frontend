@@ -6,7 +6,7 @@ import MiniShowCard from './MiniShowCard';
 
 interface ShowListProps {
   shows: Show[],
-  isMobile: Boolean,
+  isMobile: boolean,
 }
 
 const ShowList: React.FunctionComponent<ShowListProps> = ({ shows, isMobile }) => {
@@ -19,7 +19,6 @@ const ShowList: React.FunctionComponent<ShowListProps> = ({ shows, isMobile }) =
 
   const showsAtAGlance = shows.map((show, i) => {
     const isActive = queryString.parse(location.search).id === show.id;
-
 
     return (
       <MiniShowCard

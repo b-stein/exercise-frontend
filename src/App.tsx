@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Route, Redirect, withRouter, useHistory, useLocation, Switch } from "react-router-dom";
-import queryString from 'query-string';
+import { Route, useHistory, useLocation, Switch } from "react-router-dom";
 import { Show } from "./definitions/Show";
 import { getAllShows } from "./apiCalls";
 import ActiveShow from './ActiveShow';
@@ -9,8 +8,8 @@ import './App.scss';
 
 const App: React.FunctionComponent = () => {
   const [shows, setShows] = useState<Show[]>([]);
-  const [width, setWidth] = useState<Number>(window.innerWidth);
-  const [error, setError] = useState<String>('');
+  const [width, setWidth] = useState<number>(window.innerWidth);
+  const [error, setError] = useState<string>('');
   const history = useHistory();
   const location = useLocation();
 

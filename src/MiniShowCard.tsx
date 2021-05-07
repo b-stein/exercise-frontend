@@ -1,12 +1,12 @@
-import React, { useState, useEffect} from 'react';
+import React from 'react';
 import { Show } from "./definitions/Show";
 import { Link } from 'react-router-dom';
 
 interface MiniShowCardProps {
   show: Show,
   index: number,
-  isMobile: Boolean,
-  isActive: Boolean,
+  isMobile: boolean,
+  isActive: boolean,
 }
 
 const MiniShowCard: React.FunctionComponent<MiniShowCardProps> = ({ show, index, isMobile, isActive }) => {
