@@ -1,6 +1,6 @@
 # VICE Front End Coding Exercise
 
-![Screen Shot 2021-05-17 at 10 06 47 AM](https://user-images.githubusercontent.com/59381432/118520887-aec11980-b6f7-11eb-83fa-6cae414ee325.png)
+![Screen Shot 2021-05-17 at 10 09 49 AM](https://user-images.githubusercontent.com/59381432/118521227-0c556600-b6f8-11eb-9084-9b32ff68ad79.png)
 
 
 ## Setup
